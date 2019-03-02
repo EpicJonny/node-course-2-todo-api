@@ -63,8 +63,8 @@ describe('GET /todos', () => {
             .expect((res) => {
                 expect(res.body.todos.length).toBe(1);
             })
-            .end(done);
-    });
+            .end(done)
+    })
 });
 
 describe('GET /todos/:id', () => {
@@ -345,7 +345,7 @@ describe('POST /users/login', () => {
 });
 
 describe('DELETE /users/me/token', () => {
-    it('should remove auth token on logout', () => {
+    it('should remove auth token on logout', (done) => {
         request(app)
             .delete('/users/me/token')
             .set('x-auth', users[0].tokens[0].token)
